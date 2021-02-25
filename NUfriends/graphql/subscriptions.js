@@ -92,6 +92,15 @@ export const onCreateChatRoomUser = /* GraphQL */ `
         messages {
           nextToken
         }
+        lastMessageID
+        lastMessage {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -124,6 +133,15 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
         }
         messages {
           nextToken
+        }
+        lastMessageID
+        lastMessage {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          updatedAt
         }
         createdAt
         updatedAt
@@ -158,6 +176,15 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
         messages {
           nextToken
         }
+        lastMessageID
+        lastMessage {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -191,6 +218,29 @@ export const onCreateChatRoom = /* GraphQL */ `
         }
         nextToken
       }
+      lastMessageID
+      lastMessage {
+        id
+        createdAt
+        content
+        userID
+        chatRoomID
+        user {
+          id
+          name
+          imageUri
+          status
+          createdAt
+          updatedAt
+        }
+        chatRoom {
+          id
+          lastMessageID
+          createdAt
+          updatedAt
+        }
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -221,6 +271,29 @@ export const onUpdateChatRoom = /* GraphQL */ `
         }
         nextToken
       }
+      lastMessageID
+      lastMessage {
+        id
+        createdAt
+        content
+        userID
+        chatRoomID
+        user {
+          id
+          name
+          imageUri
+          status
+          createdAt
+          updatedAt
+        }
+        chatRoom {
+          id
+          lastMessageID
+          createdAt
+          updatedAt
+        }
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -250,6 +323,29 @@ export const onDeleteChatRoom = /* GraphQL */ `
           updatedAt
         }
         nextToken
+      }
+      lastMessageID
+      lastMessage {
+        id
+        createdAt
+        content
+        userID
+        chatRoomID
+        user {
+          id
+          name
+          imageUri
+          status
+          createdAt
+          updatedAt
+        }
+        chatRoom {
+          id
+          lastMessageID
+          createdAt
+          updatedAt
+        }
+        updatedAt
       }
       createdAt
       updatedAt
@@ -282,6 +378,15 @@ export const onCreateMessage = /* GraphQL */ `
         }
         messages {
           nextToken
+        }
+        lastMessageID
+        lastMessage {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          updatedAt
         }
         createdAt
         updatedAt
@@ -317,6 +422,15 @@ export const onUpdateMessage = /* GraphQL */ `
         messages {
           nextToken
         }
+        lastMessageID
+        lastMessage {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -350,6 +464,15 @@ export const onDeleteMessage = /* GraphQL */ `
         }
         messages {
           nextToken
+        }
+        lastMessageID
+        lastMessage {
+          id
+          createdAt
+          content
+          userID
+          chatRoomID
+          updatedAt
         }
         createdAt
         updatedAt
