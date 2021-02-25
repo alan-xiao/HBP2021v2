@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-nufriends-dev-170635-authRole",
+      "UnauthRoleArn": "arn:aws:iam::327938247276:role/amplify-nufriends-dev-170635-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::327938247276:role/amplify-nufriends-dev-170635-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-nufriends-dev-170635-deployment",
+      "UnauthRoleName": "amplify-nufriends-dev-170635-unauthRole",
+      "StackName": "amplify-nufriends-dev-170635",
+      "StackId": "arn:aws:cloudformation:us-east-1:327938247276:stack/amplify-nufriends-dev-170635/115623f0-7491-11eb-915d-0a77aff5dc71",
+      "AmplifyAppId": "du3f84bud9aro"
+    },
+    "categories": {
+      "auth": {
+        "nufriendsfb0d6c94": {}
+      }
+    }
+  }
+}
