@@ -1,0 +1,16 @@
+1. CD into desired directory
+2. git clone https://github.com/alan-xiao/HBP2021v2.git
+3. cd HBP2021v2
+4. npm install expo
+5. cd NUfriends
+6. expo start
+7. If it prompts you to install typescript, press yes
+8. Press run in web browser, it will crash, exit it
+9. cd HBP2021v2
+10. npm install -g @aws-amplify/cli
+11. cd NUfriends
+12. amplify pull, AWS access keys->enter access credentials->us-east-1->du3f84bud9aro->Visual Studio Code->javascript->react-native->./->./->npm run-script build->npm run-script start->Yes
+13. expo start, and it should work
+
+
+Use this for reference: https://docs.amplify.aws/start/getting-started/installation/q/integration/react-native
