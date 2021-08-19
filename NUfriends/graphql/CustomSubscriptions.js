@@ -1,13 +1,8 @@
-/* eslint-disable */
-// this is an auto generated file. This will be overwritten
-
 export const onCreateUser = /* GraphQL */ `
   subscription OnCreateUser {
     onCreateUser {
       id
       name
-      imageUri
-      status
       chatRoomUser {
         items {
           id
@@ -18,17 +13,7 @@ export const onCreateUser = /* GraphQL */ `
         }
         nextToken
       }
-      profile {
-        id
-        firstName
-        lastName
-        expectedGradYear
-        aboutMe
-        college
-        major
-        createdAt
-        updatedAt
-      }
+      profile
       createdAt
       updatedAt
     }
@@ -39,8 +24,6 @@ export const onUpdateUser = /* GraphQL */ `
     onUpdateUser {
       id
       name
-      imageUri
-      status
       chatRoomUser {
         items {
           id
@@ -51,17 +34,7 @@ export const onUpdateUser = /* GraphQL */ `
         }
         nextToken
       }
-      profile {
-        id
-        firstName
-        lastName
-        expectedGradYear
-        aboutMe
-        college
-        major
-        createdAt
-        updatedAt
-      }
+      profile
       createdAt
       updatedAt
     }
@@ -72,8 +45,6 @@ export const onDeleteUser = /* GraphQL */ `
     onDeleteUser {
       id
       name
-      imageUri
-      status
       chatRoomUser {
         items {
           id
@@ -84,17 +55,7 @@ export const onDeleteUser = /* GraphQL */ `
         }
         nextToken
       }
-      profile {
-        id
-        firstName
-        lastName
-        expectedGradYear
-        aboutMe
-        college
-        major
-        createdAt
-        updatedAt
-      }
+      profile
       createdAt
       updatedAt
     }
@@ -110,6 +71,7 @@ export const onCreateProfile = /* GraphQL */ `
       aboutMe
       college
       major
+      imageUri
       createdAt
       updatedAt
     }
@@ -125,6 +87,7 @@ export const onUpdateProfile = /* GraphQL */ `
       aboutMe
       college
       major
+      imageUri
       createdAt
       updatedAt
     }
@@ -140,6 +103,7 @@ export const onDeleteProfile = /* GraphQL */ `
       aboutMe
       college
       major
+      imageUri
       createdAt
       updatedAt
     }
@@ -154,22 +118,10 @@ export const onCreateChatRoomUser = /* GraphQL */ `
       user {
         id
         name
-        imageUri
-        status
         chatRoomUser {
           nextToken
         }
-        profile {
-          id
-          firstName
-          lastName
-          expectedGradYear
-          aboutMe
-          college
-          major
-          createdAt
-          updatedAt
-        }
+        profile
         createdAt
         updatedAt
       }
@@ -207,22 +159,10 @@ export const onUpdateChatRoomUser = /* GraphQL */ `
       user {
         id
         name
-        imageUri
-        status
         chatRoomUser {
           nextToken
         }
-        profile {
-          id
-          firstName
-          lastName
-          expectedGradYear
-          aboutMe
-          college
-          major
-          createdAt
-          updatedAt
-        }
+        profile
         createdAt
         updatedAt
       }
@@ -260,22 +200,10 @@ export const onDeleteChatRoomUser = /* GraphQL */ `
       user {
         id
         name
-        imageUri
-        status
         chatRoomUser {
           nextToken
         }
-        profile {
-          id
-          firstName
-          lastName
-          expectedGradYear
-          aboutMe
-          college
-          major
-          createdAt
-          updatedAt
-        }
+        profile
         createdAt
         updatedAt
       }
@@ -339,8 +267,7 @@ export const onCreateChatRoom = /* GraphQL */ `
         user {
           id
           name
-          imageUri
-          status
+          profile
           createdAt
           updatedAt
         }
@@ -392,8 +319,7 @@ export const onUpdateChatRoom = /* GraphQL */ `
         user {
           id
           name
-          imageUri
-          status
+          profile
           createdAt
           updatedAt
         }
@@ -445,8 +371,7 @@ export const onDeleteChatRoom = /* GraphQL */ `
         user {
           id
           name
-          imageUri
-          status
+          profile
           createdAt
           updatedAt
         }
@@ -474,22 +399,10 @@ export const onCreateMessage = /* GraphQL */ `
       user {
         id
         name
-        imageUri
-        status
         chatRoomUser {
           nextToken
         }
-        profile {
-          id
-          firstName
-          lastName
-          expectedGradYear
-          aboutMe
-          college
-          major
-          createdAt
-          updatedAt
-        }
+        profile
         createdAt
         updatedAt
       }
@@ -528,22 +441,10 @@ export const onUpdateMessage = /* GraphQL */ `
       user {
         id
         name
-        imageUri
-        status
         chatRoomUser {
           nextToken
         }
-        profile {
-          id
-          firstName
-          lastName
-          expectedGradYear
-          aboutMe
-          college
-          major
-          createdAt
-          updatedAt
-        }
+        profile
         createdAt
         updatedAt
       }
@@ -582,22 +483,10 @@ export const onDeleteMessage = /* GraphQL */ `
       user {
         id
         name
-        imageUri
-        status
         chatRoomUser {
           nextToken
         }
-        profile {
-          id
-          firstName
-          lastName
-          expectedGradYear
-          aboutMe
-          college
-          major
-          createdAt
-          updatedAt
-        }
+        profile
         createdAt
         updatedAt
       }

@@ -10,7 +10,7 @@ import styles from "./styles";
 
 import { API, Auth, graphqlOperation } from "aws-amplify";
 
-import { createMessage, updateChatRoom } from "../../graphql/mutations";
+import { createMessage, updateChatRoom } from "../../graphql/CustomMutations";
 import {
   MaterialCommunityIcons,
   MaterialIcons,

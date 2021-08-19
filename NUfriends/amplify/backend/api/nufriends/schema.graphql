@@ -1,9 +1,19 @@
 type User @model {
   id: ID!
   name: String!
-  imageUri: String
-  status: String
   chatRoomUser: [ChatRoomUser] @connection(keyName: "byUser", fields: ["id"])
+  profile: ID!
+}
+
+type Profile @model {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  expectedGradYear: Int!
+  aboutMe: String
+  college: String!
+  major: String!
+  imageUri: String!
 }
 
 type ChatRoomUser

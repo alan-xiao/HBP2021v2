@@ -3,8 +3,6 @@ export const getUser = /* GraphQL */ `
     getUser(id: $id) {
       id
       name
-      imageUri
-      status
       chatRoomUser {
         items {
           id
@@ -19,8 +17,7 @@ export const getUser = /* GraphQL */ `
                 user {
                   id
                   name
-                  imageUri
-                  status
+                  profile
                 }
               }
             }
@@ -37,6 +34,7 @@ export const getUser = /* GraphQL */ `
         }
         nextToken
       }
+      profile
       createdAt
       updatedAt
     }

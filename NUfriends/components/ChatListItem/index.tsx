@@ -4,7 +4,8 @@ import { View, Text, Image, TouchableWithoutFeedback } from "react-native";
 import { ChatRoom } from "../../types";
 import styles from "./style";
 import { useNavigation } from "@react-navigation/native";
-import { Auth } from "aws-amplify";
+import { API, Auth, graphqlOperation } from "aws-amplify";
+import { getProfile } from "../../graphql/CustomQueries";
 
 export type ChatListItemProps = {
   chatRoom: ChatRoom;
@@ -12,7 +13,7 @@ export type ChatListItemProps = {
 const ChatListItem = (props: ChatListItemProps) => {
   const { chatRoom } = props;
   const [otherUser, setOtherUser] = useState(null);
-
+  const [otherUserProfile, setOtherUserProfile] = useState(null);
   const navigation = useNavigation();
 
   useEffect(() => {
@@ -24,7 +25,14 @@ const ChatListItem = (props: ChatListItemProps) => {
         setOtherUser(chatRoom.chatRoomUsers.items[0].user);
       }
     };
+    const getOtherUserProfile = async () => {
+      const otherProfile = await API.graphql(
+        graphqlOperation(getProfile, { id: otherUser.profile}));
+      setOtherUserProfile(otherProfile as any);
+
+    }
     getOtherUser();
+    getOtherUserProfile();
   }, []);
 
   const onClick = () => {
@@ -38,7 +46,7 @@ const ChatListItem = (props: ChatListItemProps) => {
     <TouchableWithoutFeedback onPress={onClick}>
       <View style={styles.container}>
         <View style={styles.leftContainer}>
-          <Image source={{ uri: otherUser.imageUri }} style={styles.avatar} />
+          <Image source={{ uri: otherUserProfile.imageUri }} style={styles.avatar} />
 
           <View style={styles.midContainer}>
             <Text style={styles.username}>{otherUser.name}</Text>

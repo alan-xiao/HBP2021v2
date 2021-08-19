@@ -7,7 +7,7 @@ import ContactListItem from "../components/ContactListItem";
 
 import { API, graphqlOperation, Auth } from "aws-amplify";
 
-import { listUsers } from "../graphql/queries";
+import { listUsers } from "../graphql/CustomQueries";
 import users from "../data/Users";
 import NewMessageButton from "../components/NewMessageButton";
 import { useEffect } from "react";

@@ -21,6 +21,17 @@ export const createUser = /* GraphQL */ `
         }
         nextToken
       }
+      profile {
+        id
+        firstName
+        lastName
+        expectedGradYear
+        aboutMe
+        college
+        major
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }
@@ -45,6 +56,17 @@ export const updateUser = /* GraphQL */ `
           updatedAt
         }
         nextToken
+      }
+      profile {
+        id
+        firstName
+        lastName
+        expectedGradYear
+        aboutMe
+        college
+        major
+        createdAt
+        updatedAt
       }
       createdAt
       updatedAt
@@ -71,6 +93,71 @@ export const deleteUser = /* GraphQL */ `
         }
         nextToken
       }
+      profile {
+        id
+        firstName
+        lastName
+        expectedGradYear
+        aboutMe
+        college
+        major
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const createProfile = /* GraphQL */ `
+  mutation CreateProfile(
+    $input: CreateProfileInput!
+    $condition: ModelProfileConditionInput
+  ) {
+    createProfile(input: $input, condition: $condition) {
+      id
+      firstName
+      lastName
+      expectedGradYear
+      aboutMe
+      college
+      major
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateProfile = /* GraphQL */ `
+  mutation UpdateProfile(
+    $input: UpdateProfileInput!
+    $condition: ModelProfileConditionInput
+  ) {
+    updateProfile(input: $input, condition: $condition) {
+      id
+      firstName
+      lastName
+      expectedGradYear
+      aboutMe
+      college
+      major
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteProfile = /* GraphQL */ `
+  mutation DeleteProfile(
+    $input: DeleteProfileInput!
+    $condition: ModelProfileConditionInput
+  ) {
+    deleteProfile(input: $input, condition: $condition) {
+      id
+      firstName
+      lastName
+      expectedGradYear
+      aboutMe
+      college
+      major
       createdAt
       updatedAt
     }
@@ -92,6 +179,17 @@ export const createChatRoomUser = /* GraphQL */ `
         status
         chatRoomUser {
           nextToken
+        }
+        profile {
+          id
+          firstName
+          lastName
+          expectedGradYear
+          aboutMe
+          college
+          major
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
@@ -138,6 +236,17 @@ export const updateChatRoomUser = /* GraphQL */ `
         chatRoomUser {
           nextToken
         }
+        profile {
+          id
+          firstName
+          lastName
+          expectedGradYear
+          aboutMe
+          college
+          major
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -182,6 +291,17 @@ export const deleteChatRoomUser = /* GraphQL */ `
         status
         chatRoomUser {
           nextToken
+        }
+        profile {
+          id
+          firstName
+          lastName
+          expectedGradYear
+          aboutMe
+          college
+          major
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt
@@ -398,6 +518,17 @@ export const createMessage = /* GraphQL */ `
         chatRoomUser {
           nextToken
         }
+        profile {
+          id
+          firstName
+          lastName
+          expectedGradYear
+          aboutMe
+          college
+          major
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -444,6 +575,17 @@ export const updateMessage = /* GraphQL */ `
         chatRoomUser {
           nextToken
         }
+        profile {
+          id
+          firstName
+          lastName
+          expectedGradYear
+          aboutMe
+          college
+          major
+          createdAt
+          updatedAt
+        }
         createdAt
         updatedAt
       }
@@ -489,6 +631,17 @@ export const deleteMessage = /* GraphQL */ `
         status
         chatRoomUser {
           nextToken
+        }
+        profile {
+          id
+          firstName
+          lastName
+          expectedGradYear
+          aboutMe
+          college
+          major
+          createdAt
+          updatedAt
         }
         createdAt
         updatedAt

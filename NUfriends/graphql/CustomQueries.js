@@ -1,13 +1,8 @@
-/* eslint-disable */
-// this is an auto generated file. This will be overwritten
-
 export const getUser = /* GraphQL */ `
   query GetUser($id: ID!) {
     getUser(id: $id) {
       id
       name
-      imageUri
-      status
       chatRoomUser {
         items {
           id
@@ -18,17 +13,7 @@ export const getUser = /* GraphQL */ `
         }
         nextToken
       }
-      profile {
-        id
-        firstName
-        lastName
-        expectedGradYear
-        aboutMe
-        college
-        major
-        createdAt
-        updatedAt
-      }
+      profile
       createdAt
       updatedAt
     }
@@ -44,22 +29,10 @@ export const listUsers = /* GraphQL */ `
       items {
         id
         name
-        imageUri
-        status
         chatRoomUser {
           nextToken
         }
-        profile {
-          id
-          firstName
-          lastName
-          expectedGradYear
-          aboutMe
-          college
-          major
-          createdAt
-          updatedAt
-        }
+        profile
         createdAt
         updatedAt
       }
@@ -77,6 +50,7 @@ export const getProfile = /* GraphQL */ `
       aboutMe
       college
       major
+      imageUri
       createdAt
       updatedAt
     }
@@ -97,6 +71,7 @@ export const listProfiles = /* GraphQL */ `
         aboutMe
         college
         major
+        imageUri
         createdAt
         updatedAt
       }
@@ -113,22 +88,10 @@ export const getChatRoomUser = /* GraphQL */ `
       user {
         id
         name
-        imageUri
-        status
         chatRoomUser {
           nextToken
         }
-        profile {
-          id
-          firstName
-          lastName
-          expectedGradYear
-          aboutMe
-          college
-          major
-          createdAt
-          updatedAt
-        }
+        profile
         createdAt
         updatedAt
       }
@@ -171,8 +134,21 @@ export const listChatRoomUsers = /* GraphQL */ `
         user {
           id
           name
-          imageUri
-          status
+          chatRoomUser {
+            nextToken
+          }
+          profile {
+            id
+            firstName
+            lastName
+            expectedGradYear
+            aboutMe
+            college
+            major
+            imageUri
+            createdAt
+            updatedAt
+          }
           createdAt
           updatedAt
         }
@@ -224,8 +200,7 @@ export const getChatRoom = /* GraphQL */ `
         user {
           id
           name
-          imageUri
-          status
+          profile
           createdAt
           updatedAt
         }
@@ -284,22 +259,11 @@ export const getMessage = /* GraphQL */ `
       user {
         id
         name
-        imageUri
-        status
+        profile
         chatRoomUser {
           nextToken
         }
-        profile {
-          id
-          firstName
-          lastName
-          expectedGradYear
-          aboutMe
-          college
-          major
-          createdAt
-          updatedAt
-        }
+        profile
         createdAt
         updatedAt
       }
@@ -343,8 +307,7 @@ export const listMessages = /* GraphQL */ `
         user {
           id
           name
-          imageUri
-          status
+          profile
           createdAt
           updatedAt
         }
@@ -386,8 +349,7 @@ export const messagesByChatRoom = /* GraphQL */ `
         user {
           id
           name
-          imageUri
-          status
+          profile
           createdAt
           updatedAt
         }

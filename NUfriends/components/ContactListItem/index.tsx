@@ -4,8 +4,8 @@ import { User } from "../../types";
 import styles from "./style";
 import { useNavigation } from "@react-navigation/native";
 import { API, graphqlOperation, Auth } from "aws-amplify";
-import { createChatRoom, createChatRoomUser } from "../../graphql/mutations";
-import { listChatRoomUsers } from "../../graphql/queries";
+import { createChatRoom, createChatRoomUser } from "../../graphql/CustomMutations";
+import { listChatRoomUsers, getProfile } from "../../graphql/CustomQueries";
 export type ContactListItemProps = {
   user: User;
 };
@@ -14,6 +14,7 @@ const ContactListItem = (props: ContactListItemProps) => {
   const { user } = props;
 
   const navigation = useNavigation();
+  let otherUserProfile;
 
   const onClick = async () => {
     try {
@@ -103,6 +104,11 @@ const ContactListItem = (props: ContactListItemProps) => {
           })
         );
 
+          otherUserProfile = await API.graphql(
+            graphqlOperation(getProfile, { id: user.profile}));
+    
+        
+
         navigation.navigate("ChatRoom", {
           id: newChatRoom.id,
           name: "Hardcoded Name",
@@ -117,7 +123,7 @@ const ContactListItem = (props: ContactListItemProps) => {
     <TouchableWithoutFeedback onPress={onClick}>
       <View style={styles.container}>
         <View style={styles.leftContainer}>
-          <Image source={{ uri: user.imageUri }} style={styles.avatar} />
+          <Image source={{ uri: otherUserProfile.imageUri }} style={styles.avatar} />
 
           <View style={styles.midContainer}>
             <Text style={styles.username}>{user.name}</Text>

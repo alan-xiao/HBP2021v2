@@ -10,8 +10,8 @@ import {
 import { useRoute } from "@react-navigation/native";
 import { API, graphqlOperation, Auth } from "aws-amplify";
 
-import { messagesByChatRoom } from "../graphql/queries";
-import { onCreateMessage } from "../graphql/subscriptions";
+import { messagesByChatRoom } from "../graphql/CustomQueries";
+import { onCreateMessage } from "../graphql/CustomSubscriptions";
 
 import ChatMessage from "../components/ChatMessage";
 import BG from "../assets/images/BG.png";
