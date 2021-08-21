@@ -7,6 +7,7 @@ import { useNavigation } from "@react-navigation/native";
 
 const ProfileCreation = () => {
   const [nameInput, setNameInput] = useState("")
+  const [isSubmitted, submitProfile] = useState(false);
 
   const [yearOpen, setYearOpen] = useState(false);
   const [yearValue, setYearValue] = useState(null);
@@ -46,27 +47,6 @@ const ProfileCreation = () => {
     {label: 'Fishing', value: 'Fishing'},
     {label: 'Guitar', value: 'Guitar'},
   ]);
-
-
-  let name = ""
-  const saveName = userInput => {
-    name = userInput
-    console.log(name)
-  }
-
-  let year = "";
-  const saveYear = userInput => {
-    year = userInput
-    console.log(year)
-  }
-
-  let major = "";
-  const saveMajor = userInput => {
-    major = userInput
-    console.log(major)
-  }
-
-  //const navigation = useNavigation();
 
   // useEffect(() => {
   //   (async () => {
@@ -108,14 +88,21 @@ const ProfileCreation = () => {
   //     setImage(result.uri);
   //   }
   // };
+
   const saveButton = () => {
     console.log("blah")
-    console.log(nameInput);
-    console.log(yearValue);
+    console.log(nameInput);  //replace with ACTUAL graphql operations to fill out user and profile tables. PLEASE.
+    console.log(yearValue);  //required field checking yeah that sort of thing.
     console.log(majorValue);
     console.log(interestsValue);
-    navigation.navigate("Root");
+    submitProfile(true);
     //return (<Navigation colorScheme={useColorScheme()} />);
+  }
+  const colorScheme = useColorScheme();
+  if (isSubmitted) {
+    return (
+      <Navigation colorScheme={colorScheme} />
+    );
   }
 
   return (

@@ -24,6 +24,7 @@ import BottomTabNavigator from "./BottomTabNavigator";
 import LinkingConfiguration from "./LinkingConfiguration";
 import { RotationGestureHandler } from "react-native-gesture-handler";
 import ContactsScreen from "../screens/ContactsScreen";
+import ProfileCreation from "../screens/ProfileCreationScreen";
 
 // If you are not familiar with React Navigation, we recommend going through the
 // "Fundamentals" guide: https://reactnavigation.org/docs/getting-started

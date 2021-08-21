@@ -11,6 +11,7 @@ import { createUser, createProfile, updateUser, updateProfile } from "./graphql/
 import { withAuthenticator } from "aws-amplify-react-native";
 import Amplify, { Auth, API, graphqlOperation } from "aws-amplify";
 import config from "./aws-exports";
+import { useNavigation } from "@react-navigation/native";
 Amplify.configure(config);
 
 const randomImages = [
