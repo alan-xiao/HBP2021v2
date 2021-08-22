@@ -4,6 +4,8 @@ import DropDownPicker from 'react-native-dropdown-picker';
 import useColorScheme from "../hooks/useColorScheme";
 import Navigation from "../navigation";
 import { useNavigation } from "@react-navigation/native";
+import Amplify, { Auth, API, graphqlOperation } from "aws-amplify";
+import { createUser, createProfile } from "../graphql/CustomMutations";
 
 const ProfileCreation = () => {
   const [nameInput, setNameInput] = useState("")
@@ -89,14 +91,41 @@ const ProfileCreation = () => {
   //   }
   // };
 
-  const saveButton = () => {
+
+
+  const saveButton = async () => {
     console.log("blah")
     console.log(nameInput);  //replace with ACTUAL graphql operations to fill out user and profile tables. PLEASE.
     console.log(yearValue);  //required field checking yeah that sort of thing.
     console.log(majorValue);
     console.log(interestsValue);
+    //remember to check for validity first before performing graphql operations
+    const userInfo = await Auth.currentAuthenticatedUser({
+      bypassCache: true,
+    });
+    if (!userInfo) {
+      console.log("currently authenticated user not found.");
+      return;
+    }
+    const newProfile = {
+      id: userInfo.attributes.sub,
+      firstName: nameInput,
+      lastName: "...",
+      expectedGradYear: yearValue,
+      aboutMe: "...",
+      college: "...",
+      major: majorValue,
+      imageUri: "../assets/images/blank-profile-picture-973460_640.png"
+    }
+    const newUser = {
+      id: userInfo.attributes.sub,
+      name: userInfo.username,
+      profile: userInfo.attributes.sub
+    };
+    await API.graphql(graphqlOperation(createProfile, { input: newProfile }));
+    await API.graphql(graphqlOperation(createUser, { input: newUser }));
     submitProfile(true);
-    //return (<Navigation colorScheme={useColorScheme()} />);
+    
   }
   const colorScheme = useColorScheme();
   if (isSubmitted) {

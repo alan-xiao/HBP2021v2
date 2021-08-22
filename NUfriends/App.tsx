@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import useCachedResources from "./hooks/useCachedResources";
@@ -14,20 +14,21 @@ import config from "./aws-exports";
 import { useNavigation } from "@react-navigation/native";
 Amplify.configure(config);
 
-const randomImages = [
+/*const randomImages = [
   "https://hieumobile.com/wp-content/uploads/avatar-among-us-2.jpg",
   "https://hieumobile.com/wp-content/uploads/avatar-among-us-3.jpg",
   "https://hieumobile.com/wp-content/uploads/avatar-among-us-6.jpg",
   "https://hieumobile.com/wp-content/uploads/avatar-among-us-9.jpg",
-];
+];*/
 
 function App() {
   const isLoadingComplete = useCachedResources();
   const colorScheme = useColorScheme();
-  const getRandomImage = () => {
+  /*const getRandomImage = () => {
     return randomImages[Math.floor(Math.random() * randomImages.length)];
-  };
-  let userAlreadyExists = false
+  };*/
+  //let userAlreadyExists = false
+  const [userAlreadyExists, setUserAlreadyExists] = useState(false)
   useEffect(() => {
     const fetchUser = async () => {
       const userInfo = await Auth.currentAuthenticatedUser({
@@ -41,7 +42,8 @@ function App() {
         //userData.data.getUser
         if (userData.data.getUser) {
           console.log("User is already registered in database");
-          userAlreadyExists = true;
+          setUserAlreadyExists(true);
+          console.log("Username: " + userData.data.getUser.name);
           return;
         }
         // insert profile creation screeen.
